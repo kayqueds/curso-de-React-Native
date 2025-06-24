@@ -1,6 +1,27 @@
 import React, { useState } from 'react';
 import { TextInput, View, Text, Button } from 'react-native';
 import ResultImc from './ResultImc';
+import styled from 'styled-components/native';
+
+
+const Input = styled.TextInput`
+  height: 40px;
+  width: 100%;
+  border-radius: 5px;
+  background-color: #fff;
+  padding: 10px;
+  margin-bottom: 20px;
+`;
+
+
+const Texto = styled.Text`
+  font-size: 18px;
+  color: #fff;
+  margin-bottom: 10px;
+  font-family: 'Roboto';
+  `;
+
+
 // keybordTypr serve para definir o tipo de teclado que será exibido
 
 export default function Form() {
@@ -34,13 +55,13 @@ function validationImc() {
   return (
     <View>
      <View>
-        <Text>Altura:</Text>
-        <TextInput
+        <Texto>Altura:</Texto>
+        <Input
         onChangeText={setAltura} placeholder='Ex: 1.75'
         keyboardType='numeric'/>
 
-        <Text>Peso:</Text>
-        <TextInput
+        <Texto>Peso:</Texto>
+        <Input
         onChangeText={setPeso} placeholder='75.385'
         keyboardType='numeric'/>
         <Button onPress={()=> validationImc()} title={textButton}/>
@@ -50,8 +71,4 @@ function validationImc() {
     </View>
   );
 }
-
-
-
-
 
